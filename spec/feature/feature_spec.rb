@@ -58,3 +58,24 @@ scenario 'I cannot sign up with an invalid email address' do
    expect(page).to have_content('Email has an invalid format')
  end
 end
+
+feature 'User sign in' do
+
+  scenario 'with correct credentials' do
+    sign_in
+    expect(page).to have_content "Welcome, testemail@example.com"
+  end
+
+end
+
+feature 'User signs out' do
+
+
+  scenario 'while being signed in' do
+    sign_in
+    click_button 'Sign out'
+    expect(page).to have_content('goodbye!')
+    expect(page).not_to have_content('Welcome, test@test.com')
+  end
+
+end
