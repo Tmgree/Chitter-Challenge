@@ -5,12 +5,14 @@
   </head>
 
   <body>
+    <img src="http://www.getchitter.com/images/chitter_logo.svg" style="width:304px;height:228px;">
     <% if current_user %>
       Welcome, <%= current_user.email %>
       <form method='post' action='/sessions'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Sign out'>
     </form>
+    
     <% end %>
     <% if flash[:notice] %>
   <div id='notice'><%= flash[:notice] %></div>
